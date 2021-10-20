@@ -356,20 +356,31 @@
           <section>
             <h2 style="color: var(--r-link-color)">Voraussetzungen</h2>
             <ul style="font-size: 0.65em">
-              <li class="fragment">Daten vorhanden</li>
-              <li class="fragment">Einfache Strukturierung der Codebase</li>
-              <li class="fragment">Verständliche Dokumentation</li>
+              <li class="fragment">
+                Daten vorhanden <br />
+                <small
+                  >Höhendaten, Temperatur-/Winddaten für mehrere Stunden,
+                  etc.</small
+                >
+              </li>
+              <li class="fragment">
+                Verständliche Strukturierung der Codebase <br />
+                <small>Z.B. Separation of Concerns</small>
+              </li>
+              <li class="fragment">
+                Verständliche Dokumentation <br />
+                <small>"How to spin your own Erfrischungskarte"</small>
+              </li>
             </ul>
             <aside class="notes">
               <ul>
                 <li>Daten vorhanden oder nur teilweise - soll beides gehen</li>
-                <li>Temp + POIs schon hilfreich</li>
                 <li>
                   Dafür: letzte beide Punkte -> Projekt soll auch genutzt werden
                   können, wenn Daten unvollständig
                 </li>
-                <li>Einfaches Ausblenden von Layers</li>
-                <li>Gute Doku für leichte Umsetzung</li>
+                <li>Temp + POIs schon hilfreich für Erfrischung</li>
+                <li>Einfaches Ausblenden von Layers / Inhalten</li>
                 <li>Gerade in Arbeit! Beispiel...</li>
               </ul>
             </aside>
@@ -382,7 +393,7 @@
                   alt="Directories in VS COde"
                   style="border-radius: 4px"
                 />
-                <figcaption>Inhalte gesammelt in einem Ordner</figcaption>
+                <figcaption>Ort-spezifische Inhalte in einem Ordner</figcaption>
               </figure>
               <figure>
                 <img
@@ -390,9 +401,46 @@
                   alt="Configs in VS COde"
                   style="border-radius: 4px"
                 />
-                <figcaption>Konfigurationen</figcaption>
+                <figcaption>Konfiguration für andere Städte</figcaption>
               </figure>
             </div>
+            <aside class="notes">
+              <ul>
+                <li>
+                  Links: content-Folder, in dem alle Berlin-spezifischen Inhalte
+                  drin sind
+                </li>
+                <li>components, lib, etc. -> alles getrennt</li>
+                <li>Rechts: Beispiel f. Berlin-spezifische Konfiguration</li>
+                <li>Andere Stadt? Ändere Lat/Lon und den Titel</li>
+                <li>Mehr Anpassungen in den anderen Files links</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <div style="display: flex; align-items: flex-end">
+              <figure>
+                <img
+                  src="assets/images/wind_null.png"
+                  alt="Wind data"
+                  style="border-radius: 4px"
+                />
+                <figcaption>Kein Wind?</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="assets/images/wind_null_map.png"
+                  alt="Wind null"
+                  style="border-radius: 4px"
+                />
+                <figcaption>Kein Problem!</figcaption>
+              </figure>
+            </div>
+            <aside class="notes">
+              <ul>
+                <li>Möglich, dass Layers ganz weg gelassen werden</li>
+              </ul>
+            </aside>
           </section>
           <section>
             <figure style="width: 75%; margin: 0 auto">
