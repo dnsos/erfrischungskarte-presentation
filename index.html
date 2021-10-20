@@ -1,40 +1,449 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-		<title>reveal.js</title>
+    <title>Berliner Erfrischungskarte | Präsentation</title>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/white.css" />
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <figure>
+            <img
+              src="assets/images/hasenheide.png"
+              alt="Screenshot der Berliner Erfrischungskarte"
+              style="width: 50%; border-radius: 4px"
+            />
+          </figure>
+          <h1 style="font-style: italic">
+            Berliner<span style="color: var(--r-link-color)"
+              >Erfrischungskarte</span
+            >
+          </h1>
+          <p>
+            <small>
+              →
+              <a href="https://erfrischungskarte.odis-berlin.de"
+                >erfrischungskarte.odis-berlin.de</a
+              >
+            </small>
+          </p>
+          <aside class="notes">Demo Time -> show the features</aside>
+        </section>
+        <section>
+          <h2 style="color: var(--r-link-color)">T.O.C.</h2>
+          <ol style="font-weight: bold; font-size: 0.65em">
+            <li>Datenquellen</li>
+            <li style="margin-top: 0.3em">Tech Stack</li>
+            <li style="margin-top: 0.3em">Fokus 1: Mapbox</li>
+            <li style="margin-top: 0.3em">Fokus 2: Nachnutzbarkeit</li>
+            <li style="margin-top: 0.3em">Q/A</li>
+          </ol>
+        </section>
+        <section>
+          <h2 style="color: var(--r-link-color)">Datenquellen</h2>
+          <ul class="fragment" style="font-size: 0.65em">
+            <li>Bildbasierte digitale Oberflächenmodell (bDOM)</li>
+            <li>
+              Klimamodell der Senatsverwaltung für Stadtentwicklung und Wohnen
+            </li>
+            <li>Landesamt für Gesundheit und Soziales (LaGeSo)</li>
+            <li>Open Street Map</li>
+            <li>...</li>
+          </ul>
+          <p
+            class="fragment"
+            style="transform: rotate(-5deg) translateX(100px)"
+          >
+            <small
+              style="
+                background-color: var(--r-link-color);
+                color: white;
+                padding: 0.2em;
+              "
+              >Open Data! Mehr dazu später von ODIS</small
+            >
+          </p>
+          <aside class="notes">
+            <ul>
+              <li>
+                Daten bereitgestellt von verschiedenen Stellen der Berliner
+                Verwaltung
+              </li>
+              <li>Mehr Infos dazu später von ODIS</li>
+              <li>
+                Kommen in verschiedenen Formaten. Wir verarbeiten diese Daten
+                dann weiter fürs Frontend
+              </li>
+            </ul>
+          </aside>
+        </section>
+        <section>
+          <section>
+            <h2 style="color: var(--r-link-color)">Tech Stack</h2>
+            <ul style="font-size: 0.65em">
+              <li class="fragment"><b>Framework:</b> Next.js</li>
+              <li class="fragment">
+                <b>Code Quality:</b> TypeScript, ESLint, Prettier, Husky
+              </li>
+              <li class="fragment">
+                <b>Testing:</b> Jest, React Testing Library
+              </li>
+              <li class="fragment"><b>UI Components:</b> Storybook</li>
+              <li class="fragment"><b>Deployment:</b> Vercel.com</li>
+              <li class="fragment">and ...</li>
+            </ul>
+            <aside class="notes">
+              <ul>
+                <li>Reines Frontend-Projekt</li>
+                <li>Liste erklären</li>
+              </ul>
+            </aside>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2 style="color: var(--r-link-color)">
+              Fokus 1: <br />
+              Mapbox.com
+            </h2>
+            <p>
+              <small>Online-Service für Karten und Navigation</small>
+            </p>
+            <aside class="notes">
+              <ul>
+                <li>ideal für Web-Projekte (JS SDK: Mapbox GL JS)</li>
+                <li>
+                  Die Basics: Kartenmaterial selbst / optimiert für verschiedene
+                  Screens / gut dokumentiert
+                </li>
+                <li>Andere Libraries bieten das auch (z.B. Leaflet)</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <h2 style="color: var(--r-link-color)">Warum Mapbox?</h2>
+            <ul class="fragment" style="font-size: 0.65em">
+              <li>Online Editor zur Gestaltung von Background Maps</li>
+              <li>Einfache Nutzung von Vector Tiles und Raster Tiles</li>
+              <li>Geocoding API</li>
+            </ul>
+            <aside class="notes">
+              <ul>
+                <li>Warum also Mapbox?</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <h2>
+              Warum <br />
+              <span style="color: var(--r-link-color)"
+                >vielleicht irgendwann <br />
+                nicht mehr</span
+              >
+              <br />
+              <span>Mapbox?</span>
+            </h2>
+            <ul class="fragment" style="font-size: 0.65em">
+              <li>
+                Neues Lizenzmodell für Mapbox GL JS seit v2 <br />
+                (nicht mehr komplett Open Source)
+              </li>
+            </ul>
+            <aside class="notes">
+              <ul>
+                <li>
+                  Trotzdem noch nutzbar durch v1 (BSD-Lizenz) / v2 bis zu 50.000
+                  Map Loads pro Monat (geht für uns klar)
+                </li>
+                <li>Alternativen: MapLibreGL (Fork von Mapbox v1) / Leaflet</li>
+                <li>
+                  Für Tilesets braucht man auch Alternative (z.B. eigener
+                  Tileserver -> recht aufwendig)
+                </li>
+                <li>
+                  Bleiben erstmal bei Mapbox, aber beobachten die Entwicklung
+                </li>
+                <li>Jetzt: Beispiel, warum wir Mapbox einsetzen</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <h2>
+              From GeoJSON <br />
+              <span style="color: var(--r-link-color)">to Vector Tileset</span>
+            </h2>
+          </section>
+          <section>
+            <figure>
+              <img
+                src="assets/images/temp_geojson.png"
+                alt="GeoJSON"
+                style="border-radius: 4px"
+              />
+              <figcaption>28MB GeoJSON</figcaption>
+            </figure>
+            <aside class="notes">
+              <ul>
+                <li>
+                  Temperatur-Daten für Berlin für jede Stunde von 10 bis 20 Uhr
+                </li>
+                <li>Man sieht Properties: 9 Uhr -> 21 Uhr / Polygone</li>
+                <li>
+                  28 MB GeoJSON -> Performance-Problem im Browser, Karte nicht
+                  nutzbar
+                </li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <figure>
+              <img
+                src="assets/images/mapbox-vectortileset.png"
+                alt="Vector Tileset in Mapbox"
+                style="border-radius: 4px"
+              />
+              <figcaption>Vector Tileset in Mapbox</figcaption>
+            </figure>
+            <aside class="notes">
+              <ul>
+                <li>
+                  Mit Mapbox: GeoJSON hochladen und man bekommt automatisch ein
+                  Vector Tileset generiert
+                </li>
+                <li>
+                  Tileset: Geodaten, die in kleine Quadrate aufteilt werden, die
+                  für verschiedene Zoom-Studen optimiert sind
+                </li>
+                <li>
+                  Beispiel: man sieht Flächen mit Werten (1-5) für jede Stunde
+                </li>
+                <li>Jedes Tileset hat ID</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <figure style="width: 75%; margin: 0 auto">
+              <img
+                src="assets/images/temp_layer.png"
+                alt="Code mit Mapbox Tileset ID"
+                style="border-radius: 4px"
+              />
+              <figcaption>
+                Referenzieren der Mapbox Tileset URL und des Layer Names in
+                JavaScript
+              </figcaption>
+            </figure>
+            <aside class="notes">
+              <ul>
+                <li>
+                  JavaScript-Objekt, das die Informationen für Mapbox GL
+                  bereitstellt
+                </li>
+                <li>Tileset URL in der Mitte</li>
+                <li>Dadrunter: Farb-Map für verschiedene Blautöne</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <figure style="width: 75%; margin: 0 auto">
+              <img
+                src="assets/images/thf_temp.png"
+                alt="Temperaturflächen auf dem Tempelhofer Feld"
+                style="border-radius: 4px"
+              />
+              <figcaption>
+                Temperaturflächen auf der Erfrischungskarte
+              </figcaption>
+            </figure>
+            <aside class="notes">
+              <ul>
+                <li>THF hat leichten Blauton -> mittelmäßig kühl um 17 Uhr</li>
+                <li>Häuserblock daneben hell -> wärmer</li>
+              </ul>
+            </aside>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2 style="color: var(--r-link-color)">
+              Fokus 2: <br />
+              Nachnutzbarkeit
+            </h2>
+            <aside class="notes">
+              <ul>
+                <li>Wichtiger Aspekt unserer Arbeit</li>
+                <li>Projekte sollen nachhaltig wirken</li>
+                <li>Berliner Erfrischungskarte, aber warum nicht auch ...</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <hgroup style="font-style: italic">
+              <h2>
+                Berliner<span style="color: var(--r-link-color)"
+                  >Erfrischungskarte</span
+                >
+              </h2>
+              <h2 class="fragment">
+                Potsdamer<span style="color: var(--r-link-color)"
+                  >Erfrischungskarte</span
+                >
+              </h2>
+              <h2 class="fragment">
+                Hamburger<span style="color: var(--r-link-color)"
+                  >Erfrischungskarte</span
+                >
+              </h2>
+            </hgroup>
+          </section>
+          <section>
+            <figure style="width: 75%; margin: 0 auto">
+              <img
+                src="assets/images/gdk_closeup.png"
+                alt="Gieß den Kiez"
+                style="border-radius: 4px"
+              />
+            </figure>
+            <h2>Exkurs: Gieß den Kiez</h2>
+            <aside class="notes">
+              <ul>
+                <li>
+                  GDK für Berlin entwickelt, dann Interesse von anderen Städten,
+                  da das Konzept nicht nur Berlin relevant ist
+                </li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <div style="display: flex">
+              <figure>
+                <img
+                  src="assets/images/gdk.png"
+                  alt="Gieß den Kiez"
+                  style="border-radius: 4px"
+                />
+                <figcaption>Gieß den Kiez</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="assets/images/leipzig_giesst.png"
+                  alt="LEIPZIG GIESST"
+                  style="border-radius: 4px"
+                />
+                <figcaption>LEIPZIG GIESST</figcaption>
+              </figure>
+            </div>
+            <aside class="notes">
+              <ul>
+                <li>Fork aus Leipzig</li>
+                <li>Andere Städte folgen möglicherweise</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <h2>Voraussetzungen</h2>
+            <ul style="font-size: 0.65em">
+              <li class="fragment">Daten vorhanden</li>
+              <li class="fragment">Einfache Strukturierung der Codebase</li>
+              <li class="fragment">Verständliche Dokumentation</li>
+            </ul>
+            <aside class="notes">
+              <ul>
+                <li>Daten vorhanden oder nur teilweise - soll beides gehen</li>
+                <li>Temp + POIs schon hilfreich</li>
+                <li>
+                  Dafür: letzte beide Punkte -> Projekt soll auch genutzt werden
+                  können, wenn Daten unvollständig
+                </li>
+                <li>Einfaches Ausblenden von Layers</li>
+                <li>Gute Doku für leichte Umsetzung</li>
+                <li>Gerade in Arbeit! Beispiel...</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <div style="display: flex">
+              <figure>
+                <img
+                  src="assets/images/vscode_directories.png"
+                  alt="Directories in VS COde"
+                  style="border-radius: 4px"
+                />
+                <figcaption>Inhalte gesammelt in einem Ordner</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="assets/images/vscode_configs.png"
+                  alt="Configs in VS COde"
+                  style="border-radius: 4px"
+                />
+                <figcaption>Konfigurationen</figcaption>
+              </figure>
+            </div>
+          </section>
+          <section>
+            <figure style="width: 75%; margin: 0 auto">
+              <img
+                src="assets/images/pr.png"
+                alt="Pull Request in GitHub"
+                style="border-radius: 4px"
+              />
+              <figcaption>
+                →
+                <a
+                  href="https://github.com/technologiestiftung/erfrischungskarte-frontend/pull/93"
+                  >https://github.com/technologiestiftung/erfrischungskarte-frontend/pull/93</a
+                >
+              </figcaption>
+            </figure>
+            <aside class="notes">
+              <ul>
+                <li>Work in progress -> PR in GitHub offen</li>
+                <li>gebt gerne Feedback</li>
+              </ul>
+            </aside>
+          </section>
+        </section>
+        <section>
+          <h2 style="color: var(--r-link-color)">Q & A</h2>
+          <p>
+            <small style="font-size: 0.45em"
+              >Dennis Ostendorf <br />
+              ostendorf@technologiestiftung-berlin.de <br />
+              GitHub: @dnsos</small
+            >
+          </p>
+        </section>
+      </div>
+    </div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
 </html>
